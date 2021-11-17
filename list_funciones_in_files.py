@@ -29,9 +29,9 @@ def get_func_names_and_args(list_paths,get_args=False):
         with open(i,"r") as f:
             text=f.read()
         if get_args:
-            func_names=re.findall("def (\w+\([,\w_= ]+\)):",text)
+            func_names=re.findall(r"def (\w+\([-\.\",\w_= ]+\)):",text)
         else:
-            func_names=re.findall("def (\w+)\([,\w_= ]+\):",text)
+            func_names=re.findall(r"def (\w+)\([-\.-\",\w_= ]+\):",text)
         dict_final[name]=func_names
     return dict_final
 
@@ -50,11 +50,10 @@ if __name__ == "__main__":
     output_aux=master_get_funcs(dir_aux)
     with open(os.path.join(dir_aux,"functions_in_directory.txt"),"w") as f:
         for i in output_aux:
-            f.write(str(i))
+            f.write(f"* {str(i)}")
             f.write("\n")
             for j in output_aux[i]:
-                f.write("\n")
-                f.write("\t")
-                f.write(str(j))
-            f.write("\n\n")
+                f.write(f"\t* {str(j)} \n")
+                
+            f.write("\n")
 
