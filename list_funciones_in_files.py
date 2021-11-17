@@ -55,5 +55,5 @@ if __name__ == "__main__":
             for j in output_aux[i]:
                 f.write(f"\t* {str(j)} \n")
                 
-            f.write("\n")
+            #f.write("\n\n")
 
