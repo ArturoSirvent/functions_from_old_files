@@ -29,7 +29,7 @@ def get_func_names_and_args(list_paths,get_args=False):
         with open(i,"r") as f:
             text=f.read()
         if get_args:
-            func_names=re.findall(r"def (\w+\([-\.\",\w_= ]+\)):",text)
+            func_names=re.findall(r"def (\w+\([-\.\",\w_= ()\[\]]+\)):",text)
         else:
             func_names=re.findall(r"def (\w+)\([-\.-\",\w_= ]+\):",text)
         dict_final[name]=func_names
