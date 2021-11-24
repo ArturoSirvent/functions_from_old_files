@@ -25,6 +25,9 @@ def get_func_names_and_args(list_paths,get_args=False):
     for i in list_paths:
 
         name=os.path.basename(i)
+        print(name)
+        if name=="list_funciones_in_files.py":
+            continue
         
         with open(i,"r") as f:
             text=f.read()
