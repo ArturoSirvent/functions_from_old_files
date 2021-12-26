@@ -2,6 +2,9 @@
 #lo ponemos en un directorio y nos buscará todas las .py y .ipynb files dentro, y nos creará
 #un 
 
+##?? Tiene un problema y es que si partimos el nombre de la funcion en dos, no se como extraer toda la informacion de esto
+#mediante expresiones regulares.
+
 def find_files(base_dir):
     #returns a list of all the absolute paths for the .py and .ipynb files
     #it requieres glob and os
@@ -32,9 +35,11 @@ def get_func_names_and_args(list_paths,get_args=False):
         with open(i,"r") as f:
             text=f.read()
         if get_args:
-            func_names=re.findall(r"def (\w+\([-\.\",\w_= ()\[\]]+\)):",text)
+            #func_names=re.findall(r"def (\w+\([-\.\",\w_= ()\[\]]+\)):",text)
+            func_names=re.findall(r"def .*:",text)
         else:
-            func_names=re.findall(r"def (\w+)\([-\.-\",\w_= ]+\):",text)
+            #func_names=re.findall(r"def (\w+)\([-\.-\",\w_= ]+\):",text)
+            func_names=re.findall(r"def (\w+)\(.*:",text)
         dict_final[name]=func_names
     return dict_final
 
