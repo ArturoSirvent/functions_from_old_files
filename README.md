@@ -5,3 +5,6 @@ When dealing with a large amount of old code files, each one containing function
 It is by now a simple snippet of code that lists all the functions contained in multiple files, indicating the file they come from.
 However, I will like to continue the project and make it easier to distinguish between multiple versions of the same function etc.
 
+
+This is very well done in the **PDOC** library [https://pdoc.dev]() .
+
